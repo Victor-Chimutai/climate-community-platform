@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Climate Community{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Hero Section -->
+    <div class="hero-section glass-card fade-in">
+        <h1 class="hero-title">Welcome to Climate Community</h1>
+        <p class="hero-subtitle">A safe, calm, and inclusive space for sharing experiences, emotions, and knowledge about climate change</p>
+        <div class="mt-4">
+            {% if not session.get('user_id') %}
+            <a href="{{ url_for('signup') }}" class="btn btn-primary btn-lg me-3">Join Our Community</a>
+            <a href="{{ url_for('forum') }}" class="btn btn-outline-primary btn-lg">Explore Forum</a>
+            {% else %}
+            <a href="{{ url_for('forum') }}" class="btn btn-primary btn-lg me-3">Go to Forum</a>
+            <a href="{{ url_for('create_post') }}" class="btn btn-outline-primary btn-lg">Share Your Story</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="row mt-5">
+        <div class="col-md-4 mb-4">
+            <div class="card-glass text-center fade-in">
+                <i class="bi bi-people-fill" style="font-size: 3rem; color: var(--accent-green); margin-bottom: 1rem;"></i>
+                <h3>Supportive Community</h3>
+                <p>Connect with others who understand what you're going through. Share your experiences in a safe, respectful environment.</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card-glass text-center fade-in">
+                <i class="bi bi-heart-fill" style="font-size: 3rem; color: var(--accent-blue); margin-bottom: 1rem;"></i>
+                <h3>Emotional Support</h3>
+                <p>Climate change affects us all emotionally. This is a space where your feelings are valid and heard.</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-4">
+            <div class="card-glass text-center fade-in">
+                <i class="bi bi-book-fill" style="font-size: 3rem; color: var(--accent-earth); margin-bottom: 1rem;"></i>
+                <h3>Learn & Share</h3>
+                <p>Access verified climate resources and share knowledge with others in our community.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card-glass fade-in">
+                <h2 class="mb-4">Explore Our Platform</h2>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <a href="{{ url_for('forum') }}" class="text-decoration-none">
+                            <div class="glass-card p-3 mb-3">
+                                <h4><i class="bi bi-chat-dots-fill text-primary"></i> Community Forum</h4>
+                                <p class="text-muted mb-0">Share your experiences and connect with others</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <a href="{{ url_for('seville') }}" class="text-decoration-none">
+                            <div class="glass-card p-3 mb-3">
+                                <h4><i class="bi bi-geo-alt-fill text-success"></i> Seville Climate Impacts</h4>
+                                <p class="text-muted mb-0">Learn about climate change in Seville, Spain</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <a href="{{ url_for('learn') }}" class="text-decoration-none">
+                            <div class="glass-card p-3 mb-3">
+                                <h4><i class="bi bi-lightbulb-fill text-warning"></i> Learn Resources</h4>
+                                <p class="text-muted mb-0">Access verified climate change information</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <a href="{{ url_for('healing_earth') }}" class="text-decoration-none">
+                            <div class="glass-card p-3 mb-3">
+                                <h4><i class="bi bi-flower1 text-info"></i> Healing Earth</h4>
+                                <p class="text-muted mb-0">Reflect on our connection with nature</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Community Values -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card-glass fade-in">
+                <h2 class="mb-4 text-center">Our Community Values</h2>
+                <div class="row text-center">
+                    <div class="col-md-3 mb-3">
+                        <i class="bi bi-shield-check-fill" style="font-size: 2rem; color: var(--accent-green);"></i>
+                        <h5 class="mt-2">Safety</h5>
+                        <p class="text-muted">A safe space for everyone</p>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <i class="bi bi-heart-pulse-fill" style="font-size: 2rem; color: var(--accent-blue);"></i>
+                        <h5 class="mt-2">Empathy</h5>
+                        <p class="text-muted">Understanding and compassion</p>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <i class="bi bi-hand-thumbs-up-fill" style="font-size: 2rem; color: var(--accent-earth);"></i>
+                        <h5 class="mt-2">Respect</h5>
+                        <p class="text-muted">Respectful dialogue always</p>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <i class="bi bi-globe-americas" style="font-size: 2rem; color: var(--accent-green);"></i>
+                        <h5 class="mt-2">Inclusion</h5>
+                        <p class="text-muted">Everyone is welcome</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Create Post - Climate Community{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card-glass fade-in">
+                <h2 class="card-title mb-4">
+                    <i class="bi bi-pencil-square"></i> Share Your Experience
+                </h2>
+                <p class="text-muted mb-4">
+                    Your voice matters. Share your experiences, thoughts, or questions with our supportive community.
+                </p>
+                
+                <form method="POST" action="{{ url_for('create_post') }}">
+                    <div class="mb-3">
+                        <label for="category" class="form-label">Category</label>
+                        <select class="form-select" id="category" name="category" required>
+                            <option value="">Choose a category...</option>
+                            {% for category in categories %}
+                            <option value="{{ category }}">{{ category }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Title</label>
+                        <input type="text" class="form-control" id="title" name="title" required 
+                               placeholder="Give your post a title" maxlength="200">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="content" class="form-label">Your Story</label>
+                        <textarea class="form-control" id="content" name="content" rows="10" required 
+                                  placeholder="Share your experiences, emotions, or knowledge..."></textarea>
+                        <small class="text-muted">Be respectful and kind. This is a safe space for everyone.</small>
+                    </div>
+                    
+                    <div class="d-flex gap-3">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-check-circle"></i> Publish Post
+                        </button>
+                        <a href="{{ url_for('forum') }}" class="btn btn-outline-primary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="card-glass mt-4 fade-in">
+                <h5 class="mb-3"><i class="bi bi-lightbulb"></i> Tips for Sharing</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> Be authentic and honest</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> Respect others' experiences</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> Use appropriate language</li>
+                    <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> Remember: everyone's journey is valid</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
